@@ -11,12 +11,12 @@ const dat: EventItem[] = [
   {
     date: "2025-07-02T08:30:00",
     eventName: "Maddie NYC July Trip",
-    tag: "Maddie ❤️🍑🤤",
+    tag: "Maddie",
   },
   {
     date: "2025-07-30T21:00:00",
     eventName: "Maddie NYC August Trip",
-    tag: "Maddie ❤️🍑🤤",
+    tag: "Maddie",
   },
   {
     date: "2025-08-07T23:59:59",
