@@ -42,33 +42,25 @@ const dat: EventItem[] = [
 ];
 
 // Split into two sections
-const targetTag = "Maddie ❤️🍑🤤";
+const targetTag = "Maddie";
 
 const sectionOne = dat.filter((item) => item.tag === targetTag);
 const sectionTwo = dat.filter((item) => item.tag !== targetTag);
 
 const renderSection = (events: EventItem[], title: string) => {
-  const grouped = events.reduce((acc, item) => {
-    if (!acc[item.tag]) acc[item.tag] = [];
-    acc[item.tag].push(item);
-    return acc;
-  }, {} as Record<string, EventItem[]>);
+  if (events.length === 0) return null;
 
   return (
     <div className="border-2 border-gray-500 bg-gray-50 m-10 rounded-3xl">
-      <div className="flex flex-col gap-10 p-10">
-        {Object.entries(grouped).map(([tag, group]) => (
-          <div key={tag}>
-            <h3 className="text-center font-bold text-4xl">{tag}</h3>
-            <div className="flex flex-row flex-wrap justify-center gap-5 mt-4">
-              {group.map((t, i) => (
-                <div key={i}>
-                  <Timer targTime={new Date(t.date)} eventName={t.eventName} />
-                </div>
-              ))}
+      <div className="flex flex-col items-center gap-10 p-10">
+        <h2 className="text-3xl font-semibold">{title}</h2>
+        <div className="flex flex-wrap justify-center gap-5">
+          {events.map((t, index) => (
+            <div key={index}>
+              <Timer targTime={new Date(t.date)} eventName={t.eventName} />
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -78,8 +70,8 @@ const Timelyne: React.FC = () => {
   return (
     <>
       <h1 className="text-center mt-10 font-bold text-5xl">TIMELYNE</h1>
-      {renderSection(sectionOne, "Maddie Section")}
-      {renderSection(sectionTwo, "Other Events")}
+      {renderSection(sectionOne, "Maddie")}
+      {renderSection(sectionTwo, "Upcoming Albums")}
     </>
   );
 };
