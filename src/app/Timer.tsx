@@ -6,7 +6,7 @@ type CountdownProps = {
   targTime: Date;
   eventName: string;
 };
-export default function Timer({ targTime, eventName, src }: CountdownProps) {
+export default function Timer({ targTime, eventName }: CountdownProps) {
   const calculateTimeLeft = () => {
     const difference = +targTime - +new Date();
     return difference > 0 ? difference : 0;
