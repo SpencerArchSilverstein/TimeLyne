@@ -1,12 +1,12 @@
 "use client";
 
+import { Odor_Mean_Chey } from "next/font/google";
 import { useEffect, useState } from "react";
-
 type CountdownProps = {
   targTime: Date;
   eventName: string;
 };
-export default function Timer({ targTime, eventName }: CountdownProps) {
+export default function Timer({ targTime, eventName, src }: CountdownProps) {
   const calculateTimeLeft = () => {
     const difference = +targTime - +new Date();
     return difference > 0 ? difference : 0;
@@ -19,23 +19,45 @@ export default function Timer({ targTime, eventName }: CountdownProps) {
     return () => clearInterval(timer);
   }, [targTime]);
 
+  const formatFormatTime = (label: string, num: number) => {
+    return (
+      <div className="flex flex-col items-center">
+        <p className="text-5xl font-bold">{String(num).padStart(2, "0")}</p>
+        <p className="text-sm font-semibold tracking-wide">
+          {label}
+          {num !== 1 ? "S" : ""}
+        </p>
+      </div>
+    );
+  };
+
   const formatTime = (ms: number) => {
     const totalSeconds = Math.floor(ms / 1000);
     const days = Math.floor(totalSeconds / 86400);
     const hours = Math.floor((totalSeconds % 86400) / 3600);
     const minutes = Math.floor((totalSeconds % 3600) / 60);
     const seconds = totalSeconds % 60;
-
-    return `${String(days).padStart(2, "0")}:${String(hours).padStart(
-      2,
-      "0"
-    )}:${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+    const dayTime = [
+      { label: "DAY", unit: days },
+      { label: "HOUR", unit: hours },
+      { label: "MINUTE", unit: minutes },
+      { label: "SECOND", unit: seconds },
+    ];
+    return (
+      <>
+        <div className="flex flex-wrap justify-center gap-6 text-center">
+          {dayTime.map((unitz, index) => (
+            <div key={index}>{formatFormatTime(unitz.label, unitz.unit)}</div>
+          ))}
+        </div>
+      </>
+    );
   };
 
   return (
     <>
-      <div className="border-2 border-black rounded-3xl w-75 p-5 text-center bg-gray-100 ">
-        <h1 className="text-2xl break-words">Time Until {eventName}</h1>
+      <div className="border-2 border-black rounded-3xl max-w-130 p-5 text-center bg-gray-100 ">
+        <h1 className="text-2xl break-words mb-5">{eventName}</h1>
         <div className="text-2xl font-bold text-center">
           {formatTime(timeLeft)}
         </div>
