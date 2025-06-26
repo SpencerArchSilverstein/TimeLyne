@@ -9,7 +9,7 @@ type EventItem = {
 
 const dat: EventItem[] = [
   {
-    date: "2025-07-02T08:30:00",
+    date: "2025-07-03T08:30:00",
     eventName: "Maddie NYC July Trip",
     tag: "Maddie",
   },
