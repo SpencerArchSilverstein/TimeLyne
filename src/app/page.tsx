@@ -9,33 +9,33 @@ type EventItem = {
 
 const dat: EventItem[] = [
   {
-    date: "2025-07-03T08:30:00",
+    date: "2025-07-03T08:30:00-04:00",
     eventName: "Maddie NYC July Trip",
     tag: "Maddie",
   },
   {
-    date: "2025-07-30T21:00:00",
+    date: "2025-07-30T21:00:00-04:00",
     eventName: "Maddie NYC August Trip",
     tag: "Maddie",
   },
   {
-    date: "2025-08-07T23:59:59",
+    date: "2025-08-07T23:59:59-04:00",
     eventName: "JID: God Does Like Ugly",
     tag: "Music",
   },
   {
-    date: "2025-07-10T23:59:59",
+    date: "2025-07-10T23:59:59-04:00",
     eventName: "Clipse: Let God Sort Em Out",
     tag: "Music",
   },
   {
-    date: "2025-08-07T23:59:59",
+    date: "2025-08-07T23:59:59-04:00",
     eventName: "Amaarae: Black Star",
     tag: "Music",
   },
 
   {
-    date: "2025-08-28T23:59:59",
+    date: "2025-08-28T23:59:59-04:00",
     eventName: "Sabrina Carpenter: Man's Best Friend",
     tag: "Music",
   },
