@@ -9,11 +9,6 @@ type EventItem = {
 
 const dat: EventItem[] = [
   {
-    date: "2025-07-03T08:30:00-04:00",
-    eventName: "Maddie NYC July Trip",
-    tag: "Maddie",
-  },
-  {
     date: "2025-07-30T21:00:00-04:00",
     eventName: "Maddie NYC August Trip",
     tag: "Maddie",
