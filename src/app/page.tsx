@@ -14,13 +14,18 @@ const dat: EventItem[] = [
     tag: "Maddie",
   },
   {
-    date: "2025-08-07T23:59:59-04:00",
-    eventName: "JID: God Does Like Ugly",
+    date: "2025-08-30T10:40:00-04:00",
+    eventName: "Archie CHO Aug/Sept Trip",
+    tag: "Maddie",
+  },
+  {
+    date: "2025-07-25T23:59:59-04:00",
+    eventName: "Freddie Gibbs & The Alchemist: Alfredo II",
     tag: "Music",
   },
   {
-    date: "2025-07-10T23:59:59-04:00",
-    eventName: "Clipse: Let God Sort Em Out",
+    date: "2025-08-07T23:59:59-04:00",
+    eventName: "JID: God Does Like Ugly",
     tag: "Music",
   },
   {
@@ -28,7 +33,11 @@ const dat: EventItem[] = [
     eventName: "Amaarae: Black Star",
     tag: "Music",
   },
-
+  {
+    date: "2025-08-15T23:59:59-04:00",
+    eventName: "Joey Valence & Brae: Hyperyouth",
+    tag: "Music",
+  },
   {
     date: "2025-08-28T23:59:59-04:00",
     eventName: "Sabrina Carpenter: Man's Best Friend",
@@ -36,7 +45,6 @@ const dat: EventItem[] = [
   },
 ];
 
-// Split into two sections
 const targetTag = "Maddie";
 
 const sectionOne = dat.filter((item) => item.tag === targetTag);
@@ -48,7 +56,7 @@ const renderSection = (events: EventItem[], title: string) => {
   return (
     <div className="border-2 border-gray-500 bg-gray-50 m-10 rounded-3xl">
       <div className="flex flex-col items-center gap-10 p-10">
-        <h2 className="text-3xl font-semibold">{title}</h2>
+        <h2 className="text-3xl font-semibold text-center">{title}</h2>
         <div className="flex flex-wrap justify-center gap-5">
           {events.map((t, index) => (
             <div key={index}>
@@ -65,6 +73,7 @@ const Timelyne: React.FC = () => {
   return (
     <>
       <h1 className="text-center mt-10 font-bold text-5xl">TIMELYNE</h1>
+      <h5 className="text-center">Babe, I love you so fucking much</h5>
       {renderSection(sectionOne, "Maddie")}
       {renderSection(sectionTwo, "Upcoming Albums")}
     </>
