@@ -21,34 +21,56 @@ const dat: EventItem[] = [
   {
     date: "2025-07-25T23:59:59-04:00",
     eventName: "Freddie Gibbs & The Alchemist: Alfredo II",
-    tag: "Music",
+    tag: "Album Release",
   },
   {
     date: "2025-08-07T23:59:59-04:00",
     eventName: "JID: God Does Like Ugly",
-    tag: "Music",
+    tag: "Album Release",
   },
   {
     date: "2025-08-07T23:59:59-04:00",
     eventName: "Amaarae: Black Star",
-    tag: "Music",
+    tag: "Album Release",
   },
   {
     date: "2025-08-15T23:59:59-04:00",
     eventName: "Joey Valence & Brae: Hyperyouth",
-    tag: "Music",
+    tag: "Album Release",
   },
   {
     date: "2025-08-28T23:59:59-04:00",
     eventName: "Sabrina Carpenter: Man's Best Friend",
-    tag: "Music",
+    tag: "Album Release",
+  },
+  {
+    date: "2025-09-11T19:00:00-04:00",
+    eventName: "McKinley Dixon Concert",
+    tag: "Concert",
+  },
+  {
+    date: "2025-09-25T19:00:00-04:00",
+    eventName: "Viagra Boys Concert",
+    tag: "Concert",
+  },
+
+  {
+    date: "2025-10-18T19:00:00-04:00",
+    eventName: "Quadeca Concert",
+    tag: "Concert",
+  },
+  {
+    date: "2025-10-24T19:00:00-04:00",
+    eventName: "Joey Valence & Brae Concert",
+    tag: "Concert",
   },
 ];
 
 const targetTag = "Maddie";
 
-const sectionOne = dat.filter((item) => item.tag === targetTag);
-const sectionTwo = dat.filter((item) => item.tag !== targetTag);
+const sectionOne = dat.filter((item) => item.tag === "Maddie");
+const sectionTwo = dat.filter((item) => item.tag == "Album Release");
+const sectionThree = dat.filter((item) => item.tag == "Concert");
 
 const renderSection = (events: EventItem[], title: string) => {
   if (events.length === 0) return null;
@@ -76,6 +98,7 @@ const Timelyne: React.FC = () => {
       <h5 className="text-center">Babe, I love you so fucking much</h5>
       {renderSection(sectionOne, "Maddie")}
       {renderSection(sectionTwo, "Upcoming Albums")}
+      {renderSection(sectionThree, "Concerts")}
     </>
   );
 };
