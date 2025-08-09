@@ -1,6 +1,15 @@
-import React from "react";
-import Timer from "./Timer";
+"use client";
 
+import React, { useEffect, useState } from "react";
+import Timer from "./Timer";
+import {
+  GoogleAuthProvider,
+  onAuthStateChanged,
+  signInWithPopup,
+  User,
+} from "firebase/auth";
+import { auth } from "../../firebaseConfig";
+import { useRouter } from "next/router";
 type EventItem = {
   date: string;
   eventName: string;
@@ -9,33 +18,18 @@ type EventItem = {
 
 const dat: EventItem[] = [
   {
-    date: "2025-07-30T21:00:00-04:00",
-    eventName: "Maddie NYC August Trip",
+    date: "2025-08-29T14:57:00-04:00",
+    eventName: "Maddie to NYC",
     tag: "Maddie",
   },
   {
-    date: "2025-08-30T10:40:00-04:00",
-    eventName: "Archie UVA Aug/Sept Trip",
-    tag: "Maddie",
-  },
-  {
-    date: "2025-07-25T23:59:59-04:00",
-    eventName: "Freddie Gibbs & The Alchemist: Alfredo II",
-    tag: "Album Release",
-  },
-  {
-    date: "2025-08-07T23:59:59-04:00",
-    eventName: "JID: God Does Like Ugly",
-    tag: "Album Release",
-  },
-  {
-    date: "2025-08-07T23:59:59-04:00",
-    eventName: "Amaarae: Black Star",
-    tag: "Album Release",
-  },
-  {
-    date: "2025-08-15T23:59:59-04:00",
+    date: "2025-08-14T23:59:59-04:00",
     eventName: "Joey Valence & Brae: Hyperyouth",
+    tag: "Album Release",
+  },
+  {
+    date: "2025-08-14T23:59:59-04:00",
+    eventName: "Chance the Rapper: Star Line",
     tag: "Album Release",
   },
   {
@@ -46,6 +40,11 @@ const dat: EventItem[] = [
   {
     date: "2025-09-11T19:00:00-04:00",
     eventName: "McKinley Dixon Concert",
+    tag: "Concert",
+  },
+  {
+    date: "2025-09-22T19:00:00-04:00",
+    eventName: "Freddie Gibbs & Alchemist Concert",
     tag: "Concert",
   },
   {
@@ -92,13 +91,45 @@ const renderSection = (events: EventItem[], title: string) => {
 };
 
 const Timelyne: React.FC = () => {
+  const [loading, setLoading] = useState(true);
+  const [user, setUser] = useState<User | null>(null);
+  const router = useRouter();
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (!user) {
+        // Redirect if no user
+        router.push("/login"); // 👈 Replace with your login route
+      } else {
+        setUser(user);
+        setLoading(false);
+      }
+    });
+
+    return () => unsubscribe();
+  }, [router]);
+
+  if (loading) return <div>Loading...</div>;
+  const handleGoogleSignIn = async (e: any) => {
+    const provider = await new GoogleAuthProvider();
+    return signInWithPopup(auth, provider);
+  };
   return (
     <>
       <h1 className="text-center mt-10 font-bold text-5xl">TIMELYNE</h1>
-      <h5 className="text-center">Babe, I love you so fucking much</h5>
-      {renderSection(sectionOne, "Maddie")}
-      {renderSection(sectionTwo, "Upcoming Albums")}
-      {renderSection(sectionThree, "Concerts")}
+      <button
+        onClick={handleGoogleSignIn}
+        className="rounded-xl outline-2 p-4 bg-gray-100 font-bold mx-auto"
+      >
+        LOGIN
+      </button>
+      <button onClick={() => console.log(auth)}>A</button>
+      {auth && (
+        <>
+          {renderSection(sectionOne, "Maddie")}
+          {renderSection(sectionTwo, "Upcoming Albums")}
+          {renderSection(sectionThree, "Concerts")}
+        </>
+      )}
     </>
   );
 };
