@@ -7,7 +7,7 @@ import {
   signInWithPopup,
   User,
 } from "firebase/auth";
-import { auth } from "../../firebaseConfig"; // ✅ Make sure this path matches your setup
+import { auth } from "./firebaseConfig"; // ✅ Make sure this path matches your setup
 import { useRouter } from "next/navigation";
 
 const Login: React.FC = () => {

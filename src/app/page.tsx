@@ -9,7 +9,7 @@ import {
   User,
   signOut,
 } from "firebase/auth";
-import { auth } from "../../firebaseConfig"; // ✅ Adjust path
+import { auth } from "./firebaseConfig"; // ✅ Adjust path
 
 type EventItem = {
   date: string;
