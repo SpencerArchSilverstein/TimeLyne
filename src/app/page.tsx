@@ -80,7 +80,7 @@ const dat: EventItem[] = [
   },
   {
     date: "2025-10-24T19:00:00-04:00",
-    eventName: "Joey Valence & Brae Concert ",
+    eventName: "Joey Valence & Brae Concert",
     tag: "Concert",
   },
 ];
