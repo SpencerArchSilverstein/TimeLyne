@@ -8,7 +8,7 @@ import {
   signInWithPopup,
   User,
 } from "firebase/auth";
-import { auth } from "../../firebaseConfig";
+// import { auth } from "../../firebaseConfig";
 import { useRouter } from "next/router";
 type EventItem = {
   date: string;
@@ -114,42 +114,42 @@ const Timelyne: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState<User | null>(null);
   const router = useRouter();
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (!user) {
-        // Redirect if no user
-        router.push("/login"); // 👈 Replace with your login route
-      } else {
-        setUser(user);
-        setLoading(false);
-      }
-    });
+  // useEffect(() => {
+  //   const unsubscribe = onAuthStateChanged(auth, (user) => {
+  //     if (!user) {
+  //       // Redirect if no user
+  //       router.push("/login"); // 👈 Replace with your login route
+  //     } else {
+  //       setUser(user);
+  //       setLoading(false);
+  //     }
+  //   });
 
-    return () => unsubscribe();
-  }, [router]);
+  //   return () => unsubscribe();
+  // }, [router]);
 
   if (loading) return <div>Loading...</div>;
-  const handleGoogleSignIn = async (e: any) => {
-    const provider = await new GoogleAuthProvider();
-    return signInWithPopup(auth, provider);
-  };
+  // const handleGoogleSignIn = async (e: any) => {
+  //   const provider = await new GoogleAuthProvider();
+  //   return signInWithPopup(auth, provider);
+  // };
   return (
     <>
       <h1 className="text-center mt-10 font-bold text-5xl">TIMELYNE</h1>
-      <button
+      {/* <button
         onClick={handleGoogleSignIn}
         className="rounded-xl outline-2 p-4 bg-gray-100 font-bold mx-auto"
       >
         LOGIN
-      </button>
-      <button onClick={() => console.log(auth)}>A</button>
-      {auth && (
+      </button> */}
+      {/* <button onClick={() => console.log(auth)}>A</button> */}
+      {/* {auth && ( */}
         <>
           {renderSection(sectionOne, "Maddie")}
           {renderSection(sectionTwo, "Upcoming Albums")}
           {renderSection(sectionThree, "Concerts")}
         </>
-      )}
+      {/* )} */}
     </>
   );
 };
