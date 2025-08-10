@@ -9,7 +9,7 @@ import {
   User,
 } from "firebase/auth";
 // import { auth } from "../../firebaseConfig";
-import { useRouter } from "next/router";
+// import { useRouter } from "next/router";
 type EventItem = {
   date: string;
   eventName: string;
@@ -23,23 +23,18 @@ const dat: EventItem[] = [
     tag: "Maddie",
   },
   {
-    date: "2025-08-29T14:57:00-04:00",
-    eventName: "Maddie to NYC",
-    tag: "Maddie",
-  },
-  {
     date: "2025-09-12T14:57:00-04:00",
+    eventName: "Archie to CHO",
+    tag: "Maddie",
+  },
+  {
+    date: "2025-10-10T14:57:00-04:00",
     eventName: "Maddie to NYC",
     tag: "Maddie",
   },
   {
-    date: "2025-08-29T14:57:00-04:00",
-    eventName: "Maddie to NYC",
-    tag: "Maddie",
-  },
-  {
-    date: "2025-08-29T14:57:00-04:00",
-    eventName: "Maddie to NYC",
+    date: "2025-10-30T14:57:00-04:00",
+    eventName: "Archie to CHO 🎃",
     tag: "Maddie",
   },
   {
@@ -113,7 +108,7 @@ const renderSection = (events: EventItem[], title: string) => {
 const Timelyne: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState<User | null>(null);
-  const router = useRouter();
+  // const router = useRouter();
   // useEffect(() => {
   //   const unsubscribe = onAuthStateChanged(auth, (user) => {
   //     if (!user) {
@@ -128,7 +123,7 @@ const Timelyne: React.FC = () => {
   //   return () => unsubscribe();
   // }, [router]);
 
-  if (loading) return <div>Loading...</div>;
+  // if (loading) return <div>Loading...</div>;
   // const handleGoogleSignIn = async (e: any) => {
   //   const provider = await new GoogleAuthProvider();
   //   return signInWithPopup(auth, provider);
