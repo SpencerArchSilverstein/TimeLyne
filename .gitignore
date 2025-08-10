@@ -12,7 +12,6 @@
 
 # testing
 /coverage
-firebaseConfig.tsx
 
 # next.js
 /.next/
