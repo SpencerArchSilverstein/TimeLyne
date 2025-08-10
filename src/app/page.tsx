@@ -165,6 +165,9 @@ const Timelyne: React.FC = () => {
         </div>
       ) : (
         <>
+          {renderSection(sectionOne, "Maddie")}
+          {renderSection(sectionTwo, "Upcoming Albums")}
+          {renderSection(sectionThree, "Concerts")}
           <div className="flex justify-center mt-4">
             <button
               onClick={handleSignOut}
@@ -173,9 +176,6 @@ const Timelyne: React.FC = () => {
               Sign Out
             </button>
           </div>
-          {renderSection(sectionOne, "Maddie")}
-          {renderSection(sectionTwo, "Upcoming Albums")}
-          {renderSection(sectionThree, "Concerts")}
         </>
       )}
     </>
