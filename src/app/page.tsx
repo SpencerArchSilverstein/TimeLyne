@@ -23,6 +23,26 @@ const dat: EventItem[] = [
     tag: "Maddie",
   },
   {
+    date: "2025-08-29T14:57:00-04:00",
+    eventName: "Maddie to NYC",
+    tag: "Maddie",
+  },
+  {
+    date: "2025-09-12T14:57:00-04:00",
+    eventName: "Maddie to NYC",
+    tag: "Maddie",
+  },
+  {
+    date: "2025-08-29T14:57:00-04:00",
+    eventName: "Maddie to NYC",
+    tag: "Maddie",
+  },
+  {
+    date: "2025-08-29T14:57:00-04:00",
+    eventName: "Maddie to NYC",
+    tag: "Maddie",
+  },
+  {
     date: "2025-08-14T23:59:59-04:00",
     eventName: "Joey Valence & Brae: Hyperyouth",
     tag: "Album Release",
@@ -60,7 +80,7 @@ const dat: EventItem[] = [
   },
   {
     date: "2025-10-24T19:00:00-04:00",
-    eventName: "Joey Valence & Brae Concert",
+    eventName: "Joey Valence & Brae Concert ",
     tag: "Concert",
   },
 ];
