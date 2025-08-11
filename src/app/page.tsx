@@ -148,7 +148,7 @@ const Timelyne: React.FC = () => {
   return (
     <>
       <h1 className="text-center mt-10 font-bold text-5xl">TIMELYNE</h1>
-      <h5 className="text-center mt-10 font-bold text-xl">
+      <h5 className="text-center text-xl">
         Babe, I love you so fucking much 😍😘🥰
       </h5>
       {!user ? (
