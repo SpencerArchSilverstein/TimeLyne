@@ -148,9 +148,7 @@ const Timelyne: React.FC = () => {
   return (
     <>
       <h1 className="text-center mt-10 font-bold text-5xl">TIMELYNE</h1>
-      <h5 className="text-center text-xl">
-        Babe, I love you so fucking much 😍😘🥰
-      </h5>
+
       {!user ? (
         <div className="flex justify-center mt-10">
           <button
@@ -170,8 +168,26 @@ const Timelyne: React.FC = () => {
             Sign Out
           </button>
         </div>
+      ) : user.email == "mhyoo1864@gmail.com" ? (
+        <>
+          <h5 className="text-center text-xl mt-3">
+            Babe, I love you so fucking much 😍😘🥰
+          </h5>
+          {renderSection(sectionOne, "Maddie")}
+          <div className="flex justify-center mt-4">
+            <button
+              onClick={handleSignOut}
+              className="rounded-xl border p-2 bg-gray-100 hover:bg-gray-200"
+            >
+              Sign Out
+            </button>
+          </div>
+        </>
       ) : (
         <>
+          <h5 className="text-center text-xl mt-3">
+            I love my gf so fucking much 😍😘🥰
+          </h5>
           {renderSection(sectionOne, "Maddie")}
           {renderSection(sectionTwo, "Upcoming Albums")}
           {renderSection(sectionThree, "Concerts")}
