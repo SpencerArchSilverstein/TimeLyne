@@ -24,12 +24,12 @@ const dat: EventItem[] = [
     tag: "Maddie",
   },
   {
-    date: "2025-09-12T23:59:00-04:00",
+    date: "2025-09-12T10:40:00-04:00",
     eventName: "Archie to CHO",
     tag: "Maddie",
   },
   {
-    date: "2025-09-26T23:59:00-04:00",
+    date: "2025-09-26T10:40:00-04:00",
     eventName: "Archie to CHO",
     tag: "Maddie",
   },
@@ -39,8 +39,23 @@ const dat: EventItem[] = [
     tag: "Maddie",
   },
   {
-    date: "2025-10-30T23:59:00-04:00",
+    date: "2025-10-29T19:34:00-04:00",
     eventName: "Archie to CHO 🎃",
+    tag: "Maddie",
+  },
+  {
+    date: "2025-11-14T15:20:00-04:00",
+    eventName: "Maddie to NYC",
+    tag: "Maddie",
+  },
+  {
+    date: "2025-11-20T19:34:00-04:00",
+    eventName: "Archie to CHO",
+    tag: "Maddie",
+  },
+  {
+    date: "2025-12-18T16:00:00-04:00",
+    eventName: "Archie to CHO",
     tag: "Maddie",
   },
   {
