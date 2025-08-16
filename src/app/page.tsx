@@ -20,7 +20,7 @@ type EventItem = {
 const dat: EventItem[] = [
   {
     date: "2025-08-29T14:57:00-04:00",
-    eventName: "Maddie to NYC",
+    eventName: "Maddie to NYC (Labor Day Weekend)",
     tag: "Maddie",
   },
   {
@@ -34,8 +34,8 @@ const dat: EventItem[] = [
     tag: "Maddie",
   },
   {
-    date: "2025-10-10T23:59:00-04:00",
-    eventName: "Maddie to NYC",
+    date: "2025-10-10T15:20:00-04:00",
+    eventName: "Maddie's Fall Break to NYC",
     tag: "Maddie",
   },
   {
@@ -44,15 +44,11 @@ const dat: EventItem[] = [
     tag: "Maddie",
   },
   {
-    date: "2025-08-14T23:59:59-04:00",
-    eventName: "Joey Valence & Brae: Hyperyouth",
+    date: "2025-11-28T23:59:59-04:00",
+    eventName: "Joey Bada$$: Lonely At The Top",
     tag: "Album Release",
   },
-  {
-    date: "2025-08-14T23:59:59-04:00",
-    eventName: "Chance the Rapper: Star Line",
-    tag: "Album Release",
-  },
+
   {
     date: "2025-08-28T23:59:59-04:00",
     eventName: "Sabrina Carpenter: Man's Best Friend",
@@ -85,7 +81,7 @@ const dat: EventItem[] = [
   },
 ];
 
-const ALLOWED_EMAILS = ["archsilverstein@gmail.com", "mhyoo1864@gmail.com"];
+const ALLOWED_EMAILS = ["archsilverstein@gmail.com", " "];
 
 const sectionOne = dat.filter((item) => item.tag === "Maddie");
 const sectionTwo = dat.filter((item) => item.tag === "Album Release");
@@ -186,7 +182,7 @@ const Timelyne: React.FC = () => {
       ) : (
         <>
           <h5 className="text-center text-xl mt-3">
-            I love my gf so fucking much 😍😘🥰
+            I love you so much babe 😍😘🥰
           </h5>
           {renderSection(sectionOne, "Maddie")}
           {renderSection(sectionTwo, "Upcoming Albums")}
