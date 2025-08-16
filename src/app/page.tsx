@@ -238,7 +238,7 @@ const Timelyne: React.FC = () => {
             Sign Out
           </button>
         </div>
-      ) : user.email == "archsilverstein@gmail.com" ? (
+      ) : user.email == "mhyoo1864@gmail.com" ? (
         <>
           <h5 className="text-center text-xl mt-3 mx-20">
             {new Date().getHours() < 8
