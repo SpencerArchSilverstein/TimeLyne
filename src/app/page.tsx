@@ -55,7 +55,7 @@ const dat: EventItem[] = [
   },
   {
     date: "2025-12-18T16:00:00-04:00",
-    eventName: "Archie to CHO",
+    eventName: "Maddie to NYC",
     tag: "Maddie",
   },
   {
