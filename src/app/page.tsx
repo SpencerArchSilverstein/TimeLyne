@@ -96,8 +96,58 @@ const dat: EventItem[] = [
   },
 ];
 
-const ALLOWED_EMAILS = ["archsilverstein@gmail.com", "mhyoo1864@gmail.com"];
+function EmojiRain() {
+  useEffect(() => {
+    function createEmoji() {
+      const emoji = document.createElement("div");
+      emoji.textContent = "💋";
+      emoji.className =
+        "fixed top-[-2rem] text-3xl pointer-events-none select-none animate-fall";
+      emoji.style.left = Math.random() * 100 + "vw";
+      emoji.style.animationDuration = Math.random() * 3 + 2 + "s";
+      document.body.appendChild(emoji);
 
+      setTimeout(() => emoji.remove(), 5000);
+    }
+
+    const interval = setInterval(createEmoji, 300);
+    return () => clearInterval(interval);
+  }, []);
+
+  return null;
+}
+
+const targetDate = new Date(dat[0].date).getTime(); // ms
+const now = Date.now(); // ms
+const daysLeft = Math.floor((targetDate - now) / (1000 * 60 * 60 * 24));
+
+const ALLOWED_EMAILS = ["archsilverstein@gmail.com", "mhyoo1864@gmail.com"];
+const MADDIE_COMPLIMENTS = [
+  "I could get lost in those brown eyes for hours",
+  "C'MEEEEERRR!",
+  "One time for the fans! FOR THE FANS! WOOOOO!",
+  "Infinite smooches, INFINITE!",
+  "Babe, I love you so fucking much 😍😘🥰",
+  "Shall I compare that ass to a summer's day? No I shant, summer days are for 3 months, I can grab that ass YEAR ROUND!",
+  "Your hair is gorgeous,and I love those curls of yours",
+  "honk honk",
+  "sooo 🧃-y 🤤",
+  "This is a sign to DM me on instagram 😈",
+  "I'm all yours babe, every  last  inch",
+  "🤤&🙇🏼🫵🏻🍑",
+  "🥰🍆💦👉🏻🍑",
+  "🫸🏻🍒🤤🍒🫷🏻",
+  "🧖🏼🐶🧖🏻‍♀️",
+  "😘💪🏻",
+  "8===✊🏼=D💦🧖🏻‍♀️",
+  "Redeem a screenshot of this message for 3 ab pics",
+  "Redeem a screenshot of this message for 3 bicep pics",
+  `ONLY ${daysLeft} DAY${daysLeft === 1 ? "" : "S"} LEFT!`,
+  "I'm craving some whipped cream...",
+  "I miss you so much babe",
+  "You make me so happy babe",
+  "You're stunning",
+];
 const sectionOne = dat.filter((item) => item.tag === "Maddie");
 const sectionTwo = dat.filter((item) => item.tag === "Album Release");
 const sectionThree = dat.filter((item) => item.tag === "Concert");
@@ -127,8 +177,9 @@ const Timelyne: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState<User | null>(null);
   const [isAllowed, setIsAllowed] = useState(false);
-
+  const [complimentIndex, setComplimentIndex] = useState(0);
   useEffect(() => {
+    setComplimentIndex(Math.floor(Math.random() * MADDIE_COMPLIMENTS.length));
     const unsubscribe = onAuthStateChanged(auth, (u) => {
       setUser(u);
       if (u && u.email && ALLOWED_EMAILS.includes(u.email)) {
@@ -158,6 +209,9 @@ const Timelyne: React.FC = () => {
 
   return (
     <>
+      {MADDIE_COMPLIMENTS[complimentIndex] ==
+        "Infinite smooches, INFINITE!" && <EmojiRain />}
+
       <h1 className="text-center mt-10 font-bold text-5xl">TIMELYNE</h1>
 
       {!user ? (
@@ -179,10 +233,12 @@ const Timelyne: React.FC = () => {
             Sign Out
           </button>
         </div>
-      ) : user.email == "mhyoo1864@gmail.com" ? (
+      ) : user.email == "archsilverstein@gmail.com" ? (
         <>
-          <h5 className="text-center text-xl mt-3">
-            Babe, I love you so fucking much 😍😘🥰
+          <h5 className="text-center text-xl mt-3 mx-20">
+            {new Date().getHours() < 8
+              ? "Oh sleepy Maddie...Oh sleepy Maddie 😘😴"
+              : MADDIE_COMPLIMENTS[complimentIndex]}
           </h5>
           {renderSection(sectionOne, "Maddie")}
           <div className="flex justify-center mt-4">
