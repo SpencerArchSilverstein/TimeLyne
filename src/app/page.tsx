@@ -96,7 +96,7 @@ const dat: EventItem[] = [
   },
 ];
 
-const ALLOWED_EMAILS = ["archsilverstein@gmail.com", " "];
+const ALLOWED_EMAILS = ["archsilverstein@gmail.com", "mhyoo1864@gmail.com"];
 
 const sectionOne = dat.filter((item) => item.tag === "Maddie");
 const sectionTwo = dat.filter((item) => item.tag === "Album Release");
